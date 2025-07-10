@@ -69,6 +69,7 @@ print(ht.get("banana"))  # Output: 42
 5
 None
 42
+```
 ---
 
 
