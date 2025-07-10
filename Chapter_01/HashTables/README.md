@@ -1,63 +1,77 @@
 # 🧠 Hash Table with Chaining (Python)
 
-This project demonstrates a simple implementation of a **Hash Table using chaining with linked lists** in Python. It's designed for educational purposes and helps illustrate how hash codes, modulo-based indexing, and collision resolution work.
+This project demonstrates an educational yet powerful implementation of a Hash Table in Python using chaining with linked lists for collision resolution. It features an optimized polynomial rolling hash function, dynamic resizing based on load factor, and support for key operations like put(), get(), and remove(). The implementation helps reinforce key data structure concepts including hashing mechanics, collision handling, and scalable memory management.
 
 ---
 
-## 📦 Features
+## Features
 
 - Stores key-value pairs
-- Uses a simple hash function
+- Uses an optimized polynomial rolling hash function
 - Handles collisions via chaining (lists of entries)
-- Supports `put()` and `get()` operations
+- Dynamically resizes the table when load factor exceeds 0.75
+- Supports put(), get(), and remove() operations
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 No external libraries required. Just run with Python 3.
 
 ```bash
-python3 hashtable.py
+python hashtable.py
 ```
 
 ---
 
-## 🧩 Example Usage
+## Example Usage
 
 ```python
-ht = HashTable()
-ht.put("apple", 100)
-ht.put("grape", 250)
-ht.put("cat", 200)
+for fruit in ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi", "lemon"]:
+    ht.put(fruit, len(fruit))
 
-print(ht.get("apple"))  # Output: 100
-print(ht.get("grape"))  # Output: 250
-print(ht.get("cat"))    # Output: 200
+# Retrieve values
+print(ht.get("apple"))   # Output: 5
+print(ht.get("grape"))   # Output: 5
+print(ht.get("lemon"))   # Output: 5
+
+# Remove an entry
+ht.remove("apple")
+print(ht.get("apple"))   # Output: None
+
+# Insert a duplicate key with a new value
+ht.put("banana", 42)
+print(ht.get("banana"))  # Output: 42
+
 ```
+## To-Do
+
+- Add support for key iteration
+- Track and expose current load factor
+- Implement optional shrinking to save memory
+---
+
+## How It Works
+
+1. The hash_code() method converts a string key into a numeric hash using a polynomial rolling hash — multiplying by a prime number at each step to reduce collisions.
+2. The hash value is then compressed into a valid array index using the modulo operator with the current table size.
+3. Each index in the array holds a list of Entry objects, which store the actual key-value pairs.
+4. When collisions occur, new entries are appended to the list at the same index.
+5. If the load factor (# of entries / table size) exceeds 0.75, the table automatically resizes (doubles in size) and rehashes all entries.
 
 ---
 
-## 🔍 How It Works
-
-1. The `hash_code()` method converts a string key into an integer by summing the Unicode values of its characters.
-2. The hash value is compressed into a valid array index using the modulo operator.
-3. Each index in the array holds a **list of `Entry` objects**, which stores key-value pairs.
-4. When collisions occur, entries are appended to the list at the same index.
-
----
-
-## 🧪 Example Output
+## Example Output
 
 ```
-100
-250
-200
-```
-
+5
+5
+5
+None
+42
 ---
 
-## 📂 File Structure
+## File Structure
 
 ```
 hashtable.py       # Core implementation
@@ -66,24 +80,20 @@ README.md          # Documentation
 
 ---
 
-## 📘 Learning Goals
+## Learning Goals
 
-- Understand the mechanics behind hash tables
-- Learn basic collision handling using chaining
-- Practice object-oriented Python design
+- Understand how hash tables store and retrieve data efficiently
+- Learn about collision resolution using chaining (linked lists)
+- Implement an optimized hash function (polynomial rolling hash)
+- Handle dynamic resizing based on load factor to maintain performance
+- Practice designing scalable and modular data structures in Python
+- Deepen understanding of hashing mechanics, including modulo-based indexing and entry rehashing during resize operations
 
----
-
-## 🛠️ To-Do
-
-- Add delete functionality
-- Optimize hash function
-- Dynamically resize the table when load factor increases
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 Paul Cloward  
-[GitHub Profile (Optional)](https://github.com/your-username)  
+[GitHub Profile (Optional)](https://github.com/PaulCloward12)  
 Feel free to fork and modify!
