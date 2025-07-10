@@ -37,6 +37,14 @@ ra.add("Tomato")
 print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
 ra.remove("Banana")
 print(ra)  # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
 ```
 
 ## Time Complexities
