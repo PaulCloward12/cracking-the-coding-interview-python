@@ -15,3 +15,8 @@ My goal is to master core computer science concepts—like **data structures, al
 - **Reusable helper classes** (Linked List, Tree, Graph, etc.)
 
 
+## Complete Random Notes
+
+
+- Array questions and string questions are often interchangeable.
+- 
