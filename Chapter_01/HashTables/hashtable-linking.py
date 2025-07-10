@@ -9,8 +9,13 @@ class HashTable:
         self.buckets = [[] for _ in range(size)]  # Array of lists
 
     def hash_code(self, key):
-        # Simple hash function: sum of character Unicode values
-        return sum(ord(c) for c in key)
+        # Optimized polynomial rolling hash function
+        hash_value = 0
+        prime = 31
+        mod = 10**9 + 9
+        for char in key:
+            hash_value = (hash_value * prime + ord(char)) % mod
+        return hash_value
 
     def put(self, key, value):
         index = self.hash_code(key) % self.size
@@ -48,6 +53,6 @@ if __name__ == "__main__":
     ht.put("grape", 250)
     ht.put("cat", 200)
 
-    print(ht.get("apple"))   # 100
-    print(ht.remove("apple"))  # True
-    print(ht.get("apple"))   # None
+    print(ht.get("apple"))    # Output: 100
+    print(ht.remove("apple")) # Output: True
+    print(ht.get("apple"))    # Output: None
