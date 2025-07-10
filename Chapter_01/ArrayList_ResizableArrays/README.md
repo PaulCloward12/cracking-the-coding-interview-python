@@ -45,6 +45,18 @@ ra.pop()
 print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry']
 ra.pop()
 print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
+ra.insert(0, 'Popcorn')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
+ra.insert(ra.size, 'Pizza')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.insert(3, 'Gatorage')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Gatorage', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(0)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(3)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(ra.size - 1)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Elderberry', 'Orange', 'Pizza']
 ```
 
 ## Time Complexities
