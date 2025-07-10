@@ -61,8 +61,6 @@ print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
 - `README.md` - Project documentation
 
 ## Future Enhancements
-
-- Support for insertion/removal at arbitrary indices
 - Iterator support and more built-in methods
 
 ## License
