@@ -20,6 +20,19 @@ class ResizableArray:
         if index < 0 or index >= self.size:
             raise IndexError("Index out of bounds")
         return self.array[index]
+    
+    def remove(self, value):
+        # Find the first occurrence
+        for i in range(self.size):
+            if self.array[i] == value:
+                # Shift elements to the left
+                for j in range(i, self.size - 1):
+                    self.array[j] = self.array[j + 1]
+                self.array[self.size - 1] = None  # Clear the last element
+                self.size -= 1
+                return True
+        return False  # Value not found
+
 
     def __str__(self):
         return str(self.array[:self.size])
@@ -38,3 +51,5 @@ ra.add("Peach")
 ra.add("Pumpkin")
 ra.add("Tomato")
 print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
+ra.remove("Banana")
+print(ra)  # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']

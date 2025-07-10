@@ -35,6 +35,8 @@ ra.add("Peach")
 ra.add("Pumpkin")
 ra.add("Tomato")
 print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
+ra.remove("Banana")
+print(ra)  # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
 ```
 
 ## Time Complexities
@@ -52,7 +54,6 @@ print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blue
 
 ## Future Enhancements
 
-- Implement `remove()` method
 - Support for insertion/removal at arbitrary indices
 - Iterator support and more built-in methods
 
