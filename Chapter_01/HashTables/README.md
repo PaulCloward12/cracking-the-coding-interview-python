@@ -71,14 +71,6 @@ None
 42
 ---
 
-## File Structure
-
-```
-hashtable.py       # Core implementation
-README.md          # Documentation
-```
-
----
 
 ## Learning Goals
 
@@ -95,5 +87,5 @@ README.md          # Documentation
 ## Author
 
 Paul Cloward  
-[GitHub Profile (Optional)](https://github.com/PaulCloward12)  
+https://github.com/PaulCloward12  
 Feel free to fork and modify!
