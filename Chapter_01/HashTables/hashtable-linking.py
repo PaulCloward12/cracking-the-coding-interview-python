@@ -6,10 +6,11 @@ class Entry:
 class HashTable:
     def __init__(self, size=5):
         self.size = size
-        self.buckets = [[] for _ in range(size)]  # Array of lists
+        self.buckets = [[] for _ in range(size)]
+        self.count = 0
+        self.load_factor_threshold = 0.75
 
     def hash_code(self, key):
-        # Optimized polynomial rolling hash function
         hash_value = 0
         prime = 31
         mod = 10**9 + 9
@@ -18,14 +19,19 @@ class HashTable:
         return hash_value
 
     def put(self, key, value):
+        if self.count / self.size >= self.load_factor_threshold:
+            self.resize()
+
         index = self.hash_code(key) % self.size
         bucket = self.buckets[index]
 
         for entry in bucket:
             if entry.key == key:
-                entry.value = value  # Update
+                entry.value = value
                 return
-        bucket.append(Entry(key, value))  # Insert new
+
+        bucket.append(Entry(key, value))
+        self.count += 1
 
     def get(self, key):
         index = self.hash_code(key) % self.size
@@ -43,16 +49,29 @@ class HashTable:
         for i, entry in enumerate(bucket):
             if entry.key == key:
                 del bucket[i]
-                return True  # Successfully removed
-        return False  # Key not found
+                self.count -= 1
+                return True
+        return False
+
+    def resize(self):
+        new_size = self.size * 2
+        new_buckets = [[] for _ in range(new_size)]
+
+        for bucket in self.buckets:
+            for entry in bucket:
+                index = self.hash_code(entry.key) % new_size
+                new_buckets[index].append(entry)
+
+        self.size = new_size
+        self.buckets = new_buckets
 
 # Example usage:
 if __name__ == "__main__":
     ht = HashTable()
-    ht.put("apple", 100)
-    ht.put("grape", 250)
-    ht.put("cat", 200)
+    for fruit in ["apple", "banana", "cherry", "date", "fig", "grape", "kiwi"]:
+        ht.put(fruit, len(fruit))
 
-    print(ht.get("apple"))    # Output: 100
+    print(ht.get("apple"))    # Output: 5
     print(ht.remove("apple")) # Output: True
     print(ht.get("apple"))    # Output: None
+    print(ht.get("grape"))    # Output: 5
