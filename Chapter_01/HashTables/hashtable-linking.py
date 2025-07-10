@@ -27,6 +27,11 @@ class HashTable:
             if entry.key == key:
                 return entry.value
         return None
+    
+    def remove(self, key):
+        index = self.hash_code(key)
+        self.buckets[index] = [pair for pair in self.buckets[index] if pair[0] != key]
+
 
 # Demo
 ht = HashTable()
