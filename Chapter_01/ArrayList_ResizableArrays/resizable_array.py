@@ -40,6 +40,25 @@ class ResizableArray:
         self.array[self.size -1] = None
         self.size -= 1
         return value
+    
+    def insert(self, index, value):
+        if index < 0 or index > self.size:
+            raise IndexError("Index out of bounds")
+        if self.size == len(self.array):
+            self._resize()
+        
+        for i in range(self.size, index, -1):
+            self.array[i] = self.array[i - 1]
+        self.array[index] = value
+        self.size += 1
+
+    def removeAt(self, index):
+        if index < 0 or index > self.size:
+            raise IndexError("Index out of bounds")
+        for i in range(index, self.size - 1):
+            self.array[i] = self.array[i + 1]
+        self.array[self.size - 1] = None
+        self.size -= 1
 
 
 
@@ -73,3 +92,16 @@ ra.pop()
 print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry']
 ra.pop()
 print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
+
+ra.insert(0, 'Popcorn')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
+ra.insert(ra.size, 'Pizza')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.insert(3, 'Gatorage')
+print(ra) # ['Popcorn', 'Apple', 'Cherry', 'Gatorage', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(0)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Date', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(3)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Elderberry', 'Orange', 'Pizza']
+ra.removeAt(ra.size - 1)
+print(ra) # ['Apple', 'Cherry', 'Gatorage', 'Elderberry', 'Orange', 'Pizza']
