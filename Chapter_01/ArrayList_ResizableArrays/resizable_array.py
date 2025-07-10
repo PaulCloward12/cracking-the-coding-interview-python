@@ -32,6 +32,15 @@ class ResizableArray:
                 self.size -= 1
                 return True
         return False  # Value not found
+    
+    def pop(self):
+        if self.size == 0:
+            raise IndexError("Pop from empty array")
+        value = self.array[self.size -1]
+        self.array[self.size -1] = None
+        self.size -= 1
+        return value
+
 
 
     def __str__(self):
@@ -45,11 +54,22 @@ ra.add("Cherry")
 ra.add("Date")
 ra.add("Elderberry")
 print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry']
+
 ra.add("Orange")
 ra.add("Blueberry")
 ra.add("Peach")
 ra.add("Pumpkin")
 ra.add("Tomato")
 print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
+
 ra.remove("Banana")
 print(ra)  # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
+
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry']
+ra.pop()
+print(ra) # ['Apple', 'Cherry', 'Date', 'Elderberry', 'Orange']
