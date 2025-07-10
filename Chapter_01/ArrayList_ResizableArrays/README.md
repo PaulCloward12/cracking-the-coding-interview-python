@@ -39,11 +39,11 @@ print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blue
 
 ## Time Complexities
 
-| Operation      | Time Complexity |
-|----------------|-----------------|
-| Add (end)      | O(1) amortized  |
-| Access by index| O(1)            |
-| Resize (when full) | O(n)       |
+| Operation          | Time Complexity |
+|--------------------|-----------------|
+| Add (end)          | O(1) amortized  |
+| Access by index    | O(1)            |
+| Resize (when full) | O(n)            |
 
 ## File Structure
 

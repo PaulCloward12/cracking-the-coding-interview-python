@@ -37,3 +37,4 @@ ra.add("Blueberry")
 ra.add("Peach")
 ra.add("Pumpkin")
 ra.add("Tomato")
+print(ra)  # ['Apple', 'Banana', 'Cherry', 'Date', 'Elderberry', 'Orange', 'Blueberry', 'Peach', 'Pumpkin', 'Tomato']
