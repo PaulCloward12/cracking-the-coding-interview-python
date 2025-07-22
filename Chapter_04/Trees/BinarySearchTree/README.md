@@ -18,7 +18,7 @@ This project is a complete Binary Search Tree (BST) implementation in Python. It
 ## How to Use
 
 ```bash
-python binary_search_tree.py
+python bst.py
 ```
 
 You'll see:
